@@ -1,0 +1,1 @@
+from .domain.test_use_case import test_obter_informacoes_usuario_use_case
