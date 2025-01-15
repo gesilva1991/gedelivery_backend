@@ -33,10 +33,10 @@ ADMIN_INDEX_TITLE = 'Bem-vindo ao Painel de Administração'
 
 AUTH_USER_MODEL = "repositories.UsuarioModel"
 
-AUTHENTICATION_BACKENDS = (
-    'social_core.backends.google.GoogleOAuth2',
-    'django.contrib.auth.backends.ModelBackend',
-)
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.google.GoogleOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
 CORS_ALLOW_ALL_ORIGINS = True
 
@@ -44,9 +44,6 @@ CORS_ALLOWED_ORIGINS = []
 
 
 GOOGLE_CLIENT_ID = "38639244049-4j8el60ek7b0qftigl86qmru2e7j7s4h.apps.googleusercontent.com"
-
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = "38639244049-4j8el60ek7b0qftigl86qmru2e7j7s4h.apps.googleusercontent.com"
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = "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"
 
 
 # Application definition
