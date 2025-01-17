@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-#Comando para gerar arquivo requirements.txt excluindo pacote de desenvolvimento
+#Comando para gerar arquivo requirements.txt de pacotes instalados manualmente excluindo pacote de desenvolvimento
 req:
 	@pip list --not-required --format=freeze | grep -v -f <(tail -n +3 requirements-dev.txt) > requirements.txt
 	@echo Arquivo Gerado
@@ -30,6 +30,8 @@ test:
 upgrade:	
 	python3 -m pip install --upgrade pip
 
+# python manage.py startapp myapp
+# python manage.py collectstatic
 # python manage.py makemigrations
 # python manage.py migrate
 

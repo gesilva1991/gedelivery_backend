@@ -1,7 +1,7 @@
 SHELL := /bin/bash
 
 # Comando para iniciar servidor Django
-run:
+r:
 	python manage.py runserver
 
 mk:
@@ -9,3 +9,7 @@ mk:
 
 mg:
 	python manage.py migrate
+
+
+c:
+	python manage.py collectstatic --noinput
