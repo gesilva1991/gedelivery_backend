@@ -172,3 +172,4 @@ cython_debug/
 
 # Ignorar arquivos estáticos coletados
 */staticfiles/
+
