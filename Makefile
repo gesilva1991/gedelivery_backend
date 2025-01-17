@@ -1,12 +1,12 @@
 SHELL := /bin/bash
 
 #Comando para gerar arquivo requirements.txt de pacotes instalados manualmente excluindo pacote de desenvolvimento
-req:
+rn:
 	@pip list --not-required --format=freeze | grep -v -f <(tail -n +3 requirements-dev.txt) > requirements.txt
 	@echo Arquivo Gerado
 
 #Comando para gerar arquivo requirements.txt excluindo pacote de desenvolvimento
-r:
+req:
 	@pip list --format=freeze | grep -v -f <(tail -n +3 requirements-dev.txt) > requirements.txt
 	@echo Arquivo Gerado
 
