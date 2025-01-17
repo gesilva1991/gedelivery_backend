@@ -33,10 +33,7 @@ ADMIN_INDEX_TITLE = 'Bem-vindo ao Painel de Administração'
 
 AUTH_USER_MODEL = "repositories.UsuarioModel"
 
-# AUTHENTICATION_BACKENDS = (
-#     'social_core.backends.google.GoogleOAuth2',
-#     'django.contrib.auth.backends.ModelBackend',
-# )
+
 
 CORS_ALLOW_ALL_ORIGINS = True
 

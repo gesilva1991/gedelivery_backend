@@ -3,20 +3,9 @@ services:
   app:
     build: .
     volumes:
-      - .:/home/app
-    working_dir: /home/app/delivery
+      - .:/home
+    working_dir: /home/delivery
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
 
-  nginx:
-    image: nginx:latest
-    ports:
-      - "80:80"    # Redireciona tráfego HTTP
-      - "443:443"  # Redireciona tráfego HTTPS
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro # Configuração do Nginx
-      - ./certs:/etc/ssl/certs:ro             # Certificados SSL
-      - ./certs:/etc/ssl/private:ro          # Chave privada SSL
-    depends_on:
-      - app

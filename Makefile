@@ -5,6 +5,12 @@ req:
 	@pip list --not-required --format=freeze | grep -v -f <(tail -n +3 requirements-dev.txt) > requirements.txt
 	@echo Arquivo Gerado
 
+#Comando para gerar arquivo requirements.txt excluindo pacote de desenvolvimento
+r:
+	@pip list --format=freeze | grep -v -f <(tail -n +3 requirements-dev.txt) > requirements.txt
+	@echo Arquivo Gerado
+
+
 # Comando para listar apenas pacotes instalado explicitamente pelo programador
 pip-list:
 	pip list --not-required
