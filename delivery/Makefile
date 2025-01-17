@@ -4,6 +4,9 @@ SHELL := /bin/bash
 r:
 	python manage.py runserver
 
+da:
+	daphne config.asgi:application
+
 mk:
 	python manage.py makemigrations
 
