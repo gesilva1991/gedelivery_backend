@@ -36,14 +36,12 @@ jobs:
 
       - name: Run migrations
         run: |
-          python manage.py migrate
-      
-      - name: Entrar no diretorio delivery
-        run: |
           cd delivery
+          python manage.py migrate
 
       - name: Run tests
         run: |
+          cd delivery
           python manage.py test
 
 #   deploy:

@@ -40,10 +40,12 @@ jobs:
 
       - name: Run migrations
         run: |
+          cd delivery
           python manage.py migrate
 
       - name: Run tests
         run: |
+          cd delivery
           python manage.py test
 
 #   deploy:
