@@ -18,5 +18,7 @@ RUN pip install -r requirements.txt
 # Copiar o restante do código da aplicação
 COPY . .
 
+WORKDIR /home/delivery
+
 # Comando para iniciar o servidor
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
