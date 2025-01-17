@@ -171,4 +171,4 @@ cython_debug/
 .pypirc
 
 # Ignorar arquivos estáticos coletados
-*/staticfiles/
+# */staticfiles/

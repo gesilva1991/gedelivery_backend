@@ -38,7 +38,10 @@ upgrade:
 # Verificar conexao
 # npx wscat -c ws://localhost:8000/ws/pedidos/
 
-# Subir server
-# daphne -b 0.0.0.0 -p 8000 delivery.asgi:application
+# Subir server asgi com daphne
+# daphne config.asgi:application ou daphne -b 0.0.0.0 -p 8000 config.asgi:application
+
+# Subir server wsgi com gunicorn
+# gunicorn config.wsgi:application
 
 # ngrok http 5173
