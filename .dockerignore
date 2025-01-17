@@ -1,0 +1,38 @@
+# Diretórios e arquivos comuns do Django
+*.pyc
+*.pyo
+__pycache__
+
+# Diretórios específicos de IDEs e editores
+.vscode/
+.idea/
+*.swp
+
+# Arquivos de configuração de ambientes locais
+*.env
+*.env.*
+
+# Arquivos de logs
+*.log
+
+# Banco de dados local (se não for usar o banco de dados dentro do contêiner)
+db.sqlite3
+
+# Diretórios do sistema de dependências
+node_modules/
+venv/
+.env/
+
+# Diretórios específicos de build
+build/
+dist/
+*.egg-info/
+
+# Arquivos de teste e cobertura
+*.coveragerc
+coverage.xml
+nosetests.xml
+*.tox/
+*.nox/
+*.coverage
+*.hypothesis/
