@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  test:
+  ci:
     runs-on: ubuntu-latest
     
     steps:
@@ -19,7 +19,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.10'
+          python-version: '3.13'
 
       - name: Install dependencies
         run: |
@@ -43,6 +43,47 @@ jobs:
         run: |
           cd delivery
           python manage.py test
+
+  # Job de qualidade de código
+  code_quality:
+    runs-on: ubuntu-latest
+    name: Run Code Quality Checks
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install flake8 black isort pylint mypy  # Instalar ferramentas de qualidade de código
+
+      - name: Check code style with flake8
+        run: |
+          flake8 .  # Executa o flake8 para verificar erros e estilo
+
+      - name: Auto-format with black
+        run: |
+          black --check .  # Verifica se o código está formatado corretamente com o black (sem modificar)
+
+      - name: Check import order with isort
+        run: |
+          isort --check-only .  # Verifica a ordenação das importações sem alterar
+
+      # - name: Linting with pylint
+      #   run: |
+      #     pylint --max-line-length=100  # Verifica o código com pylint
+      #     pylint delivery/
+
+      # - name: Type check with mypy (se você estiver usando tipagem estática)
+      #   run: |
+      #     mypy delivery  # Checagem de tipos com mypy
 
 #   deploy:
 #     needs: test

@@ -1,10 +1,12 @@
-
 class Usuario:
     """
     Entidade que representa um usuário do sistema.
     A entidade não se preocupa com persistência ou lógica de banco de dados.
     """
-    def __init__(self, id: int, username: str, email: str, first_name: str, last_name: str):
+
+    def __init__(
+        self, id: int, username: str, email: str, first_name: str, last_name: str
+    ):
         self.id = id
         self.username = username
         self.email = email

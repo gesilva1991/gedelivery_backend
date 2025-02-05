@@ -1,16 +1,17 @@
 import pytest
-from rest_framework.exceptions import ValidationError
 from repositories.models.usuario_models import UsuarioModel
 from repositories.serializers import RegistroUsuarioSerializer
+from rest_framework.exceptions import ValidationError
+
 
 @pytest.mark.django_db
 def test_serializer_create():
     """Teste se o RegistroUsuarioSerializer cria um usuário corretamente"""
     # Dados válidos para criar o usuário
     valid_data = {
-        'username': 'usuario_test',
-        'email': 'usuario_test@example.com',
-        'password': 'senha_segura',
+        "username": "usuario_test",
+        "email": "usuario_test@example.com",
+        "password": "senha_segura",
     }
 
     # Instancia o serializer com os dados válidos
@@ -28,6 +29,7 @@ def test_serializer_create():
 
     # # Verifica se a senha está sendo corretamente salva de forma criptografada
     # assert user.check_password(valid_data['password'])
+
 
 # @pytest.mark.django_db
 # def test_serializer_invalid_data():
@@ -71,4 +73,3 @@ def test_serializer_create():
 
 #     # Verifica se a mensagem de erro foi gerada corretamente para o email duplicado
 #     assert 'email' in serializer.errors
-

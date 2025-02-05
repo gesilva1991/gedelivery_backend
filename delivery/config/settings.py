@@ -26,22 +26,33 @@ SECRET_KEY = "django-insecure-zg0qedc1w=^rk$*y&u@%ku#f*-u^=*2=m=s*nytcyjn30nejbj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
-ADMIN_SITE_HEADER = 'GeDelivery'
-ADMIN_SITE_TITLE = 'Administração GeDelivery'
-ADMIN_INDEX_TITLE = 'Bem-vindo ao Painel de Administração'
+ADMIN_SITE_HEADER = "GeDelivery"
+ADMIN_SITE_TITLE = "Administração GeDelivery"
+ADMIN_INDEX_TITLE = "Bem-vindo ao Painel de Administração"
 
 AUTH_USER_MODEL = "repositories.UsuarioModel"
 
+ASGI_APPLICATION = "config.asgi.application"
 
 
 CORS_ALLOW_ALL_ORIGINS = True
 
 CORS_ALLOWED_ORIGINS = []
 
+# Cookies com SameSite e Secure configurados
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SAMESITE = 'Strict'
+CSRF_COOKIE_SAMESITE = 'Strict'
 
-GOOGLE_CLIENT_ID = "38639244049-4j8el60ek7b0qftigl86qmru2e7j7s4h.apps.googleusercontent.com"
+
+
+
+GOOGLE_CLIENT_ID = (
+    "38639244049-4j8el60ek7b0qftigl86qmru2e7j7s4h.apps.googleusercontent.com"
+)
 
 
 # Application definition
@@ -59,9 +70,9 @@ INSTALLED_APPS = [
     "autenticacao",
 ]
 
-MEDIA_URL = '/media/'
+MEDIA_URL = "/media/"
 
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = BASE_DIR / "media"
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -78,17 +89,17 @@ MIDDLEWARE = [
 ROOT_URLCONF = "config.urls"
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework_simplejwt.authentication.JWTAuthentication"
     ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
     ],
 }
 
 # JWT Settings
 SIMPLE_JWT = {
-    'AUTH_HEADER_TYPES': ('Bearer',),
+    "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
 
@@ -160,11 +171,24 @@ USE_TZ = True
 STATIC_URL = "/static/"
 
 # Define o caminho onde os arquivos estáticos serão armazenados após o collectstatic
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, "static"),
 ]
+
+
+# Garante que todos os cookies sejam enviados apenas sobre HTTPS
+SECURE_SSL_REDIRECT = False
+
+# Para garantir que todos os cookies sejam seguros
+SECURE_HSTS_SECONDS = 31536000  # 1 ano
+
+# Cookies com SameSite e Secure configurados
+SESSION_COOKIE_SECURE = True
+
+
+
 
 
 # Default primary key field type

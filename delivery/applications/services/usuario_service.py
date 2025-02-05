@@ -1,5 +1,8 @@
-from domain.use_cases.obter_informacoes_usuario_use_case import ObterInformacoesUsuarioUseCase
-from domain.interfaces.usuario_repository_interface import UsuarioRepositoryInterface
+from domain.interfaces.usuario_repository_interface import \
+    UsuarioRepositoryInterface
+from domain.use_cases.obter_informacoes_usuario_use_case import \
+    ObterInformacoesUsuarioUseCase
+
 
 class UsuarioService:
     def __init__(self, usuario_repository_interface: UsuarioRepositoryInterface):
